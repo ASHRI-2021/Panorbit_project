@@ -1,0 +1,35 @@
+/* .bgImage {
+    height: 100vh;
+    background:url('../assets/images/wave-haikei.svg');
+    overflow: hidden;
+} */
+
+.bgImage {
+    height: 40vh;
+    width: 100%;
+    text-align: center;
+    background-color: #6600FF;
+    z-index: -1;
+}
+
+.bgImage::after {
+    content: '';
+    display: block;
+    border-radius: 100% 25%;
+    width: 54%;
+    height: 100%;
+    transform: translate(85%, -20%);
+    background-color: whitesmoke;
+    z-index: -1;
+}
+
+.bgImage::before {
+    content: '';
+    display: block;
+    border-radius: 100% 50%;
+    width: 53%;
+    height: 100%;
+    background-color: #6600FF;
+    transform: translate(-4%, 40%);
+    z-index: -1;
+}
