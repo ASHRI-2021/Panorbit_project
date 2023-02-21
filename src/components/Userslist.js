@@ -11,26 +11,30 @@ import {
   ListItemIcon,
   Avatar,
 } from "@mui/material";
+import { users_list } from "../constants/users"
+
 
 function Userslist(props) {
   const [users, setUsers] = React.useState([]);
   const navigate = useNavigate();
 
   React.useEffect(() => {
-    getUsers();
+    // getUsers();
+    setUsers(users_list.users);
+    props.storeUsersList(users_list.users);
   }, []);
 
-  function getUsers() {
-    fetch("https://panorbit.in/api/users.json")
-      .then((response) => response.json())
-      .then((result) => {
-        if (result) {
-          setUsers(result.users);
-          props.storeUsersList(result.users);
-        }
-      })
-      .catch((err) => console.log(err));
-  }
+  // function getUsers() {
+  //   fetch("https://panorbit.in/api/users.json")
+  //     .then((response) => response.json())
+  //     .then((result) => {
+  //       if (result) {
+  //         setUsers(result.users);
+  //         props.storeUsersList(result.users);
+  //       }
+  //     })
+  //     .catch((err) => console.log(err));
+  // }
 
   function handleUserClick(e, user) {
     //send the user data to redux
